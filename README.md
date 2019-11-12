@@ -1,4 +1,4 @@
-### downloading data and setting up the jupyter enviornment
+### downloading data and setting up the hail enviornment
 
 1. hail enviornment was created in anaconda (incuding: java jdk 8, pyspark 2.4)
 
