@@ -1,8 +1,10 @@
-### downloading data and setting up the hail enviornment
+### data and setting up the hail enviornment
 
-1. hail enviornment was created in anaconda (incuding: java jdk 8, pyspark 2.4)
+1. Hail enviornment was created in a [docker container](Dockerfile)
 
-2. to run jupyter notebook `jupyter notebook --no-browser --port=8888`, then locally `ssh -N -f -L -p localhost:8888:localhost:8888 remoteuser@remotehost` then `localhost:8888` in browser
+2. To start the container: `docker run -it --rm -p 8889:8889 hail-jupyter`
+
+3. To connect from local:`ssh -N -f -L -p localhost:8889:localhost:8889 remoteuser@remotehost` then `localhost:8889` in browser
 
 
 
