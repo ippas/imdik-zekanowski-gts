@@ -6,7 +6,7 @@ Samples were analysed with hail (0.2.27) in jupyter notebooks. Due to bein large
 
 step 1. alleles were split using hail hl.split_multi_hts() function (star alleles removed)
 
-step 2. repeats were removed using UCSC available rmsk track (bed was first splitted using split command `split -d -l 50000 repeatmasker-all rpmsk`)
+step 2. repeats were removed using UCSC available rmsk track (bed was first splitted using split command `split -d -l 200000 repeatmasker-all rpmsk`)
 
 step 3. variants were annotated with gnomad coverage and filtered ...
 
