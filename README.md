@@ -1,6 +1,14 @@
-### Data analysis:
+## Data analysis:
 
-Samples were analysed with hail (0.2.27) in jupyter notebooks. Due to bein large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded. What is more samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
+Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks. 
+
+
+### PART1: small vcf analysis:
+For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to bein large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded. What is more samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
+
+
+
+### PART2 : large vcf analysis:
 
 #### 1. vcf filtering and annotation [in this notebook](large_vcf_prep.ipynb)
 
