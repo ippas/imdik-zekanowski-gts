@@ -2,24 +2,27 @@
 
 Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks. 
 
+samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
 
 ### PART1: small vcf analysis:
-For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to bein large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded. What is more samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
+For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to being large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded. 
 
+Analysis was conducted in three parts:
+1. [Main analysis file](small_vcf_analysis.ipynb) that produced pandas dataframes
+2. [Notebook to export appropriate csv and excel files](csv-work.ipynb)
+3. [Variant overrepresentation vs gnomAD](variant_overrepresentation_small_vcf.ipynb). This analysis is not finished as I wanted to have proper gnomAD controls and conduct the overrepresentation per genes not per variants. 
+
+## small vcf results:
+description of initial results is available [here](https://docs.google.com/document/d/1wTMr_adtZWmKsrAAQDkk6aXU-3-p6bbi84qVoKFFIro/edit?usp=sharing) and resulting tables are available[here](http://149.156.177.112/projects/imdik-zekanowski-gts/small_vcf_analysis/out_files/)
 
 
 ### PART2 : large vcf analysis:
 
-#### 1. vcf filtering and annotation [in this notebook](large_vcf_prep.ipynb)
+#### 1. vcf filtering and annotation was performed in  steps
 
-step 1. alleles were split using hail hl.split_multi_hts() function (star alleles removed)
+[step 1](step1_filter_repeatmasker.ipynb):  repeats were removed using UCSC available rmsk track (bed was first splitted using split command `split -d -l 200000 repeatmasker-all rpmsk`)
 
-step 2. repeats were removed using UCSC available rmsk track (bed was first splitted using split command `split -d -l 200000 repeatmasker-all rpmsk`)
-
-step 3. variants were annotated with gnomad coverage and filtered ...
-
-
-add info: Filtering rare_variants conditions for step 1: gene lists. If a gene list was >150 long, AF in nfe from gnomAD was filtered at 0.0001, for shorter lists: 0.001. Variants that occured in any of the controls were excluded
+[step 2](step2_split_select.ipynb): alleles were split using hail hl.split_multi_hts() function (star alleles removed) and ...
 
 
 ### data and setting up the hail enviornment
