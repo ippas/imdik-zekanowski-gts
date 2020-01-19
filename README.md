@@ -31,7 +31,7 @@ description of initial results is available [here](https://docs.google.com/docum
 
 [step 5](step5_gwas_annotate.ipynb): variants were annotated with p values from GTS gwas study
 
-separate step: Drawing of 151 simulated gnomad controls and annotation of the dataset
+[separate step](gnomad_filter_annotate_draw.ipynb): Drawing of 151 simulated gnomad controls and annotation of this dataset (and filtering for coverage).
 
 [step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
