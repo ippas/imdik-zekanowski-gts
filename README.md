@@ -31,8 +31,9 @@ description of initial results is available [here](https://docs.google.com/docum
 
 [step 5](step5_gwas_annotate.ipynb): variants were annotated with p values from GTS gwas study
 
-(+ annotation of gnomad and drawing variants to get controls and joining of those simulated controls with existing table)
+separate step: Drawing of 151 simulated gnomad controls and annotation of the dataset
 
+[step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
 
 ### data and hail enviornment set up
