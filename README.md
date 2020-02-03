@@ -13,7 +13,7 @@ Analysis was conducted in three parts:
 3. [Variant overrepresentation vs gnomAD](variant_overrepresentation_small_vcf.ipynb). This analysis was not really polished and finished as I wanted to have proper gnomAD controls and conduct the overrepresentation per genes not per variants. 
 
 ## small vcf results:
-description of initial results is available [here](https://docs.google.com/document/d/1wTMr_adtZWmKsrAAQDkk6aXU-3-p6bbi84qVoKFFIro/edit?usp=sharing) and resulting tables are available[here](http://149.156.177.112/projects/imdik-zekanowski-gts/small_vcf_analysis/out_files/)
+description of initial results is available [here](https://docs.google.com/document/d/1wTMr_adtZWmKsrAAQDkk6aXU-3-p6bbi84qVoKFFIro/edit?usp=sharing) and resulting tables are available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/small_vcf_analysis/out_files/)
 
 
 ### PART2 : large vcf analysis:
@@ -35,6 +35,9 @@ description of initial results is available [here](https://docs.google.com/docum
 
 [step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
+#### 2. SKAT test
+The output of step 6 was used to for a SKAT test on different gene lists. The analysis notebook is available [here](patients_vs_controls_cadd_SKAT.ipynb) and the resulting report can be found under [this link](https://docs.google.com/document/d/1FF_HU3rsZ0NCg0FTl6P-54T780kh_5CZp7Jbq-5cpS4/edit?usp=sharing)
+
 
 ### data and hail enviornment set up
 
@@ -44,3 +47,5 @@ description of initial results is available [here](https://docs.google.com/docum
 
 3. To connect from local:`ssh -N -f -L localhost:8889:localhost:8889 ifpan` then `localhost:8889` in browser
  
+### data analysis of Prometheus (pl-grid)
+Data were copied to the Prometheus according to the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy). 
