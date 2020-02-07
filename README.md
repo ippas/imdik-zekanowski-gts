@@ -48,5 +48,6 @@ The output of step 6 was used to for a SKAT test on different gene lists. The an
 3. To connect from local:`ssh -N -f -L localhost:8889:localhost:8889 ifpan` then `localhost:8889` in browser
  
 ### data analysis of Prometheus (pl-grid)
-Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with the following syntax: `srun -p plgrid-testing --time 1:00:00 -n 1 --pty /bin/bash -l` and then wget from our server.
+Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with the following syntax: `srun -p plgrid-testing --time 1:00:00 -n 1 --pty /bin/bash -l` and then wget from our server: `wget -r -nH --cut-dirs=2 --no-parent --reject="index.html*" <url>`
+
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
