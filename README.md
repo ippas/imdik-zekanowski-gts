@@ -36,8 +36,7 @@ description of initial results is available [here](https://docs.google.com/docum
 [step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
 #### 2. SKAT test
-The output of step 6 was used to for a SKAT test on different gene lists. The analysis notebook is available [here](patients_vs_controls_cadd_SKAT.ipynb) and the resulting report can be found under [this link](https://docs.google.com/document/d/1FF_HU3rsZ0NCg0FTl6P-54T780kh_5CZp7Jbq-5cpS4/edit?usp=sharing)
-
+The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](SKAT_heavy_vs_gnomad_test_on_families.ipynb).
 
 ### data and hail enviornment set up
 
