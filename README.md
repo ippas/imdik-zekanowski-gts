@@ -36,7 +36,7 @@ description of initial results is available [here](https://docs.google.com/docum
 [step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
 #### 2. SKAT test
-The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](SKAT_heavy_vs_gnomad_test_on_families.ipynb).
+The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html). 
 
 ### data and hail enviornment set up
 
@@ -50,3 +50,6 @@ The output of step 6 was used to for a SKAT test and then a try to use the top g
 Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with the following syntax: `srun -p plgrid-testing --time 1:00:00 -n 1 --pty /bin/bash -l` and then wget from our server: `wget -r -nH --cut-dirs=2 --no-parent --reject="index.html*" <url>`
 
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
+
+### additional info:
+Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available[here](vcf_exports_for_Kuba.ipynb)
