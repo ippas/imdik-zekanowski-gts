@@ -38,6 +38,10 @@ description of initial results is available [here](https://docs.google.com/docum
 #### 2. SKAT test
 The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html). 
 
+#### 3. Addtional analyses (agreed upon on the meeting):
+* A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families)
+* SKAT analysis of all genes - with and without related individuals
+
 ### data and hail enviornment set up
 
 1. Hail enviornment was created in a [docker container](Dockerfile)
@@ -52,4 +56,4 @@ Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfro
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
 
 ### additional info:
-Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available[here](vcf_exports_for_Kuba.ipynb)
+Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available [here](vcf_exports_for_Kuba.ipynb)
