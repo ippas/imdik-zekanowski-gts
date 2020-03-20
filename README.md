@@ -39,7 +39,7 @@ description of initial results is available [here](https://docs.google.com/docum
 The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html). 
 
 #### 3. Addtional analyses (agreed upon on the meeting):
-* A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families)
+* A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families) ([code available here](2020_03_family_table_export.ipynb))
 * SKAT analysis of all genes - with and without related individuals ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
 
 * classifier based on brain-enriched genes ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
