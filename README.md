@@ -40,7 +40,10 @@ The output of step 6 was used to for a SKAT test and then a try to use the top g
 
 #### 3. Addtional analyses (agreed upon on the meeting):
 * A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families)
-* SKAT analysis of all genes - with and without related individuals
+* SKAT analysis of all genes - with and without related individuals ([code available here](all_genes_brain_classifier.ipynb))
+
+* classifier based on brain-enriched genes ([code available here](all_genes_brain_classifier.ipynb))
+
 
 ### data and hail enviornment set up
 
