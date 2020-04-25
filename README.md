@@ -60,3 +60,6 @@ Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfro
 
 ### additional info:
 Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available [here](vcf_exports_for_Kuba.ipynb)
+
+### PART 3: structural variants analysis
+vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster
