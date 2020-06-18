@@ -1,3 +1,19 @@
+#### June 2020 update:
+
+In June 2020 35 new samples were obtained to be added to the analyses. We repeated genotyping (from gvcf stage) to incorporate them. 
+
+[This workflow](https://gitlab.com/intelliseq/workflows/-/blob/gvcf-joint-genotyping@1.0.1/src/main/wdl/modules/gvcf-joint-genotyping/gvcf-joint-genotyping.wdl) was used for joint genotyping.
+
+To get the input:
+```
+echo {\"gvcf_joint_genotyping_workflow.gvcf_gz\": [
+ls */*.gz | xargs -i bash -c 'echo \"{}\",'
+echo ], \"gvcf_joint_genotyping_workflow.gvcf_gz_tbi\": [
+ls */*.gz.tbi | xargs -i bash -c 'echo \"{}\",'
+echo ]}
+```
+To run the workflow
+
 ## Data analysis:
 
 Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks. 
@@ -62,4 +78,10 @@ Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfro
 Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available [here](vcf_exports_for_Kuba.ipynb)
 
 ### PART 3: structural variants analysis
-vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster
+vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster 
+
+************** add link to analysis! ***********************
+
+
+
+
