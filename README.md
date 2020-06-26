@@ -12,7 +12,8 @@ echo ], \"gvcf_joint_genotyping_workflow.gvcf_gz_tbi\": [
 ls */*.gz.tbi | xargs -i bash -c 'echo \"{}\",'
 echo ]}
 ```
-To run the workflow
+To run the workflow:
+`/home/ifpan/projects/imdik-zekanowski-gts/data/gvcf_with_new_samples$ java -Dconfig.file=/opt/tools/cromwell/cromwell.cfg -jar /opt/tools/cromwell/cromwell-44.jar run https://gitlab.com/intelliseq/workflows/-/raw/gvcf-joint-genotyping@1.0.1/src/main/wdl/modules/gvcf-joint-genotyping/gvcf-joint-genotyping.wdl -i input.json > log.all`
 
 ## Data analysis:
 
