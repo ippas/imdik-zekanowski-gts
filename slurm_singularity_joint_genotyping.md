@@ -53,7 +53,7 @@ backend {
 ## slurm configuration
 #SBATCH --partition plgrid
 #SBATCH -N 5
-#SBATCH -C localfs #this allows singularity yo use $SCRATCH_LOCAL
+#SBATCH -C localfs #this allows singularity to use $SCRATCH_LOCAL
 #SBATCH --ntasks-per-node=24
 #SBATCH --time 12:00:00
 #SBATCH --begin=now
