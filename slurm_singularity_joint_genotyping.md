@@ -9,6 +9,15 @@ module load plgrid/tools/cromwell/50
 $WOMTOOL_RUN inputs $WORKFLOW-PATH
 ```
 
+short script to echo the input (beware of the extra commas)
+```
+echo {\"gvcf_joint_genotyping_workflow.gvcf_gz\": [
+ls *gz | xargs -i bash -c 'echo \" {} \"',
+echo ], \"gvcf_joint_genotyping_workflow.gvcf_gz_tbi\": [
+ls *tbi | xargs -i bash -c 'echo \" {} \"',
+echo ], \"gvcf_joint_genotyping_workflow.kit\": \"genome\"}
+```
+
 ### 2. Create a cromwell config file with the following text:
 
 *note: it is crucial to export cache directories for singularity on HPC clusters, as singularity will automatically use user's home directory for cache, which often has limited space.*
