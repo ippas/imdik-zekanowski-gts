@@ -1,33 +1,30 @@
-#### June 2020 update:
+#### WGS analysis of GTS data:
 
-In June 2020 35 new samples were obtained to be added to the analyses. We repeated genotyping (from gvcf stage) to incorporate them. 
+*note: In June 2020 35 new samples were obtained to be added to the analyses. We repeated genotyping (from gvcf stage) to incorporate them. Below is the full information for the whole analysis of all 186 samples*
 
-[This workflow](https://gitlab.com/intelliseq/workflows/-/blob/gvcf-joint-genotyping@1.0.1/src/main/wdl/modules/gvcf-joint-genotyping/gvcf-joint-genotyping.wdl) was used for joint genotyping.
+## Joint genotyping
 
-To get the input:
-```
-echo {\"gvcf_joint_genotyping_workflow.gvcf_gz\": [
-ls */*.gz | xargs -i bash -c 'echo \"{}\",'
-echo ], \"gvcf_joint_genotyping_workflow.gvcf_gz_tbi\": [
-ls */*.gz.tbi | xargs -i bash -c 'echo \"{}\",'
-echo ]}
-```
-To run the workflow:
-`/home/ifpan/projects/imdik-zekanowski-gts/data/gvcf_with_new_samples$ java -Dconfig.file=/opt/tools/cromwell/cromwell.cfg -jar /opt/tools/cromwell/cromwell-44.jar run https://gitlab.com/intelliseq/workflows/-/raw/gvcf-joint-genotyping@1.0.1/src/main/wdl/modules/gvcf-joint-genotyping/gvcf-joint-genotyping.wdl -i input.json > log.all`
+Gvcf's were obtained from Intelliseq for all samples. Joint genotyping was performed with [this workflow](add stable link here) on the Prometheus HPC. See [this file](slurm_singularity_joint_genotyping.md) for details on how the analysis was run.
+
+## vcf filtering steps (filtering for coverage with gnomAD and filtering out low-complexity regions
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------- analyses below this line regard first batch of samples and will be repeated for all samples ----------------------------------
 
 ## Data analysis:
 
-Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks. 
+Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks.
 
 samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
 
 ### PART1: small vcf analysis:
-For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to being large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded. 
+For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to being large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded.
 
 Analysis was conducted in three parts:
 1. [Main analysis file](small_vcf_analysis.ipynb) that produced pandas dataframes
 2. [Notebook to export appropriate csv and excel files](csv-work.ipynb)
-3. [Variant overrepresentation vs gnomAD](variant_overrepresentation_small_vcf.ipynb). This analysis was not really polished and finished as I wanted to have proper gnomAD controls and conduct the overrepresentation per genes not per variants. 
+3. [Variant overrepresentation vs gnomAD](variant_overrepresentation_small_vcf.ipynb). This analysis was not really polished and finished as I wanted to have proper gnomAD controls and conduct the overrepresentation per genes not per variants.
 
 ## small vcf results:
 description of initial results is available [here](https://docs.google.com/document/d/1wTMr_adtZWmKsrAAQDkk6aXU-3-p6bbi84qVoKFFIro/edit?usp=sharing) and resulting tables are available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/small_vcf_analysis/out_files/)
@@ -53,7 +50,7 @@ description of initial results is available [here](https://docs.google.com/docum
 [step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
 #### 2. SKAT test
-The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html). 
+The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html).
 
 #### 3. Addtional analyses (agreed upon on the meeting):
 * A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families) ([code available here](2020_03_family_table_export.ipynb))
@@ -66,10 +63,10 @@ The output of step 6 was used to for a SKAT test and then a try to use the top g
 
 1. Hail enviornment was created in a [docker container](Dockerfile)
 
-2. To start the container: `docker run -it --rm -p 8889:8889 -p 4040:4040 -v $PWD:/hail hail-jupyter` 
+2. To start the container: `docker run -it --rm -p 8889:8889 -p 4040:4040 -v $PWD:/hail hail-jupyter`
 
 3. To connect from local:`ssh -N -f -L localhost:8889:localhost:8889 ifpan` then `localhost:8889` in browser
- 
+
 ### data analysis of Prometheus (pl-grid)
 Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with the following syntax: `srun -p plgrid-testing --time 1:00:00 -n 1 --pty /bin/bash -l` and then wget from our server: `wget -r -nH --cut-dirs=2 --no-parent --reject="index.html*" <url>`
 
@@ -79,10 +76,6 @@ Data were copied to the Prometheus (see to the [documentation](https://kdm.cyfro
 Naked and annotated vcf's for a single sample were exported on request. The notebook for the export is available [here](vcf_exports_for_Kuba.ipynb)
 
 ### PART 3: structural variants analysis
-vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster 
+vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster
 
 ************** add link to analysis! ***********************
-
-
-
-
