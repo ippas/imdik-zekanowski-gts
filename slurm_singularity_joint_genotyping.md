@@ -8,7 +8,6 @@ wget $WORKFLOW-URL
 module load plgrid/tools/cromwell/50
 $WOMTOOL_RUN inputs $WORKFLOW-PATH
 ```
-*substitute with url and path
 
 ### 2. Create a cromwell config file with the following text:
 
