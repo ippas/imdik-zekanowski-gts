@@ -84,3 +84,8 @@ newgrp $GROUP # substitute with your group name, this avoids the "disc quota exc
 sbatch cromwell-sbatch.slurm
 ```
 *note: first run of each container will require singularity to build a container from scratch and this takes a surprising amount of time*
+
+
+## The workflow above is suitable for a limited amount od samples. For more samples we are going to run GenomicDB
+
+
