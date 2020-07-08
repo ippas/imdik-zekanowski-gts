@@ -86,6 +86,10 @@ sbatch cromwell-sbatch.slurm
 *note: first run of each container will require singularity to build a container from scratch and this takes a surprising amount of time*
 
 
-## The workflow above is suitable for a limited amount od samples. For more samples we are going to run GenomicDB
+## The workflow above is suitable for a limited amount od samples. For more samples we are going to run GenomicsDB:
+
+`srun -p plgrid-testing -N 1 --ntasks-per-node=1 -n 12 -t 01:00:00 --pty /bin/bash -l 
+
+module load plgrid/tools/gatk/4.1.3.0`
 
 
