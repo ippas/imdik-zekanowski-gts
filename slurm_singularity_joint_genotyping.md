@@ -87,7 +87,28 @@ sbatch cromwell-sbatch.slurm
 
 
 ## The workflow above is suitable for a limited amount od samples. For more samples we are going to run GenomicsDB:
-This is run manually with gatk on cyfronet
+This is run manually with gatk on cyfronet. First files need to be processed with bcftools to collapse lines with multiple genotypes.
+
+```
+#!/bin/bash
+
+## slurm configuration
+#SBATCH --partition plgrid-testing
+#SBATCH -N 2
+#SBATCH --ntasks-per-node=24
+#SBATCH --time 01:00:00
+#SBATCH --begin=now
+#SBATCH --job-name bcftools-norm
+#SBATCH --output job-log--%J.txt
+
+
+module load plgrid/tools/bcftools
+
+
+
+ls *.gz | xargs -t -d "\n" -I "{}" -P 0 srun -n 2 -N 1 --mem=5gb bcftools norm -m +any -O z -o ./bcftools_output/{} {}
+```
+
 
 ```
 #!/bin/bash
