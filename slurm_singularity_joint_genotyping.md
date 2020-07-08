@@ -87,6 +87,7 @@ sbatch cromwell-sbatch.slurm
 
 
 ## The workflow above is suitable for a limited amount od samples. For more samples we are going to run GenomicsDB:
+This is run manually with gatk on cyfronet
 
 ```
 #!/bin/bash
