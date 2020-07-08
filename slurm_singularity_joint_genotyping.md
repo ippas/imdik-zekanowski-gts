@@ -93,10 +93,5 @@ srun -p plgrid-testing -N 1 --ntasks-per-node=1 -n 12 -t 01:00:00 --pty /bin/bas
 
 module load plgrid/tools/gatk/4.1.3.0
 
-gatk --java-options "-Xmx32g -Xmx4g" GenomicsDBImport \
--V 460.g.vcf.gz \                 
--V 461.g.vcf.gz \   
---genomicsdb-workspace-path ./genomics-db \
---tmp-dir=$SCRATCH \
-
+gatk --java-options "-Xmx32g -Xmx4g" GenomicsDBImport -V 460.g.vcf.gz -V 461.g.vcf.gz -L ./genomics-db/part1-interval-list.interval_list -L ./genomics-db/part2-interval-list.interval_list --genomicsdb-workspace-path ./genomics-db --tmp-dir=$SCRATCH 
 ```
