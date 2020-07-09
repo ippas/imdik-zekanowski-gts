@@ -135,3 +135,10 @@ gatk --java-options "-Xmx512g -Xmx4g" GenomicsDBImport $FILE_LIST -L ./genomics-
 *note : interval list from here: http://anakin.intelliseq.pl/public/intelliseqngs/workflows/resources/intervals/broad-institute-wgs-calling-regions/hg38.even.handcurated.20k.broad-institute-hg38.interval_list*
 
 
+### The same was run on io server in docker containers:
+
+1. To run bcftools norm:
+```
+:/home/ifpan/projects/imdik-zekanowski-gts/data/gvcf_with_new_samples$ ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data biocontainers/bcftools:1.3.1 bcftools norm -m +any -O z -o /data/bcftools_output/{} /data/{} 
+```
+
