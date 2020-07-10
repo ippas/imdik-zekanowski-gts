@@ -142,3 +142,6 @@ gatk --java-options "-Xmx512g -Xmx4g" GenomicsDBImport $FILE_LIST -L ./genomics-
 :/home/ifpan/projects/imdik-zekanowski-gts/data/gvcf_with_new_samples$ ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data biocontainers/bcftools:1.3.1 bcftools norm -m +any -O z -o /data/bcftools_output/{} /data/{} 
 ```
 
+2. To index each file:
+
+
