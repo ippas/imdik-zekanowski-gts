@@ -147,7 +147,17 @@ ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data biocontainers/bcft
 ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data broadinstitute/gatk gatk IndexFeatureFile -I /data/{}
 ```
 
-3. To create the genomicsDB:
+3. To prepare 20 separate intervals w Intelliseq's task:
+
+```
+wget https://gitlab.com/intelliseq/workflows/raw/interval-group@1.1.2/src/main/wdl/tasks/interval-group/interval-group.wdl
+wget http://anakin.intelliseq.pl/public/intelliseqngs/workflows/resources/intervals/broad-institute-wgs-calling-regions/hg38.even.handcurated.20k.broad-institute-hg38.interval_list
+
+
+
+
+
+4. To create the genomicsDB:
 ```
 FILE_LIST=`ls *gz | xargs -i bash -c 'echo -V /data/{}'`
 
