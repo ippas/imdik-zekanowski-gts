@@ -153,9 +153,18 @@ ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data broadinstitute/gat
 wget https://gitlab.com/intelliseq/workflows/raw/interval-group@1.1.2/src/main/wdl/tasks/interval-group/interval-group.wdl
 wget http://anakin.intelliseq.pl/public/intelliseqngs/workflows/resources/intervals/broad-institute-wgs-calling-regions/hg38.even.handcurated.20k.broad-institute-hg38.interval_list
 
+#run womtool to get the input.json pattern
 
+java -jar /opt/tools/cromwell/cromwell-44.jar run interval-group.wdl -i input.json
+```
 
-
+input.json:
+```
+{
+  "interval_group_workflow.interval_group.max_no_pieces_to_scatter_an_interval_file": "20",
+  "interval_group_workflow.interval_group.interval_file": "hg38.even.handcurated.20k.broad-institute-hg38.interval_list"
+}
+```
 
 4. To create the genomicsDB:
 ```
