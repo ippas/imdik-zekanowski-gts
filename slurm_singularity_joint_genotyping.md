@@ -135,7 +135,7 @@ gatk --java-options "-Xmx512g -Xmx4g" GenomicsDBImport $FILE_LIST -L ./genomics-
 *note : interval list from here: http://anakin.intelliseq.pl/public/intelliseqngs/workflows/resources/intervals/broad-institute-wgs-calling-regions/hg38.even.handcurated.20k.broad-institute-hg38.interval_list*
 
 
-### The same was run on io server in docker containers:
+### The same was run on our server in docker containers for comparison:
 
 1. To run bcftools norm:
 ```
@@ -145,6 +145,14 @@ ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data biocontainers/bcft
 2. To index each file:
 ```
 ls *gz | xargs -P 0 -n 1 -i"{}" docker run --rm -v $PWD:/data broadinstitute/gatk gatk IndexFeatureFile -I /data/{}
+```
+
+3. To create the genomicsDB:
+```
+FILE_LIST=`ls *gz | xargs -i bash -c 'echo -V /data/{}'`
+
+docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xmx5g" GenomicsDBImport $FILE_LIST --batch-size 25 --consolidate true -L chr20 --genomicsdb-workspace-path /data/genomics_db
+
 ```
 
 
