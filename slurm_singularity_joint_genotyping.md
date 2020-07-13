@@ -170,9 +170,9 @@ input.json:
 ```
 FILE_LIST=`ls *gz | xargs -i bash -c 'echo -V /data/{}'`
 
-docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xmx5g" GenomicsDBImport $FILE_LIST --batch-size 25 --consolidate true -L chr20 --genomicsdb-workspace-path /data/genomics_db
+docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xmx5g" GenomicsDBImport $FILE_LIST -L /data/intervals/part001-hg38.even.handcurated.20k.broad-institute-hg38.interval_list --genomicsdb-workspace-path /data/genomics-db-001 --batch-size 25 --consolidate true
 
+### For each of the 20 intervals changes interval file and genomics db folder 
 ```
-
 
 
