@@ -176,7 +176,7 @@ docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -
 ```
 5. To perform joint genotyping:
 ```
-docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g" GenotypeGVCFs -R /data/Homo_sapiens_assembly38.fa.gz -V gendb:///data/genomics_db -O /data/chr20.vcf.gz --annotate-with-num-discovered-alleles true
+docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g" GenotypeGVCFs -R /data/Homo_sapiens_assembly38.fa.gz -V gendb:///data/genomics_db -O /data/chr20.vcf.gz --annotate-with-num-discovered-alleles true --allow-old-rms-mapping-quality-annotation-data true
 ```
 
 
