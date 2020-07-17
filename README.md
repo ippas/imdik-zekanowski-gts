@@ -1,12 +1,14 @@
-#### WGS analysis of GTS data:
+# WGS analysis of GTS data:
 
 *note: In June 2020 35 new samples were obtained to be added to the analyses. We repeated genotyping (from gvcf stage) to incorporate them. Below is the full information for the whole analysis of all 186 samples*
 
-## Joint genotyping
+## 1. Joint genotyping
 
-Gvcf's were obtained from Intelliseq for all samples. Joint genotyping was performed with [this workflow](add stable link here) on the Prometheus HPC. See [this file](slurm_singularity_joint_genotyping.md) for details on how the analysis was run.
+Genomic vcf's were obtained from Intelliseq for all samples. Joint genotyping was performed with gatk 4.1.8. See [this file](joint_genotyping.md) for details on how the analysis was run.
 
-## vcf filtering steps (filtering for coverage with gnomAD and filtering out low-complexity regions
+## 2. Filtering steps (filtering for coverage with gnomAD and filtering out low-complexity regions, split of multiallelic variants)
+
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
