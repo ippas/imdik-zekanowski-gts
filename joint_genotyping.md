@@ -38,10 +38,10 @@ FILE_LIST=`ls *gz | xargs -i bash -c 'echo -V /data/{}'`
 
 docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xmx5g" GenomicsDBImport $FILE_LIST -L /data/intervals/part001-hg38.even.handcurated.20k.broad-institute-hg38.interval_list --genomicsdb-workspace-path /data/genomics-db-001 --batch-size 25 --consolidate true
 ```
-*This was done for each of the 20 intervals* 
 
 5. To perform joint genotyping:
 ```
 docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g" GenotypeGVCFs -R /data/Homo_sapiens_assembly38.fa.gz -V gendb:///data/genomics-db-001 -O /data/part001.vcf.gz --annotate-with-num-discovered-alleles true --allow-old-rms-mapping-quality-annotation-data true
 ```
+*Steps 4 and 5 were performed for each of the 20 intervals* 
 
