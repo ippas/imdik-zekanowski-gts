@@ -45,3 +45,13 @@ docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g" 
 ```
 *Steps 4 and 5 were performed for each of the 20 intervals* 
 
+6. To concatenate vcf files:
+
+```
+PARTS=`ls part*vcf.gz | xargs -I {} echo /data/{}`
+
+run -d --rm -v $PWD:/data biocontainers/bcftools:1.3.1 bcftools concat -O z -o GTS.vcf.gz $PARTS
+```
+
+
+
