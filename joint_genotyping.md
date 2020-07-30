@@ -36,7 +36,7 @@ input.json:
 ```
 FILE_LIST=`ls *gz | xargs -i bash -c 'echo -V /data/{}'`
 
-docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xmx5g" GenomicsDBImport $FILE_LIST -L /data/intervals/part001-hg38.even.handcurated.20k.broad-institute-hg38.interval_list --genomicsdb-workspace-path /data/genomics-db-001 --batch-size 25 --consolidate true
+docker run --rm -v $PWD:/data broadinstitute/gatk gatk --java-options "-Xmx12g -Xms5g" GenomicsDBImport $FILE_LIST -L /data/intervals/part001-hg38.even.handcurated.20k.broad-institute-hg38.interval_list --genomicsdb-workspace-path /data/genomics-db-001 --batch-size 25 --consolidate true
 ```
 
 5. To perform joint genotyping:
