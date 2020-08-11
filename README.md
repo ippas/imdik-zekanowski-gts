@@ -29,11 +29,11 @@ All analyses were performed with Hail 0.2.30.
 
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
 
-Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here]()
+Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here](2020_08_vcf_filter_anno.ipynb)
 
 ### 3. Family - based analysis:
 
-A table od variants based on MAF < 0.0001 and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families) ([code available here](2020_08_family_table_export.ipynb))
+A table od variants based on MAF < 0.0001 and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families). [Code is available here](2020_08_family_table_export.ipynb)
 
 ### 4. 
 
