@@ -29,13 +29,15 @@ All analyses were performed with Hail 0.2.30.
 
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
 
-Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here](2020_08_vcf_filter_anno.ipynb)
+Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here](vcf_filter_anno.ipynb)
 
 ### 3. Family - based analysis:
 
-A table od variants based on MAF < 0.0001 and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families). [Code is available here](2020_08_family_table_export.ipynb)
+A table od variants based on MAF < 0.0001 and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families). [Code is available here](family_table_export.ipynb)
 
-### 4. 
+### 4. Variariant overrepresentation analysis
+
+For variant analysis, all variants were annotated with their CADD scores. GnomAD allele frequencies (non-finnish european) were used to simulate controls (in this notebook)[link]. The cohort and simulated controls were later joined into one matrix table. 
 
 
 
@@ -48,26 +50,12 @@ A table od variants based on MAF < 0.0001 and a model of dominant heritability w
 
 
 
-### PART2 : large vcf analysis:
-
-#### 1. vcf filtering and annotation was performed in  steps
-
-
-[step 4](step4_cadd.ipynb): variants were annotated with CADD
-
-[step 5](step5_gwas_annotate.ipynb): variants were annotated with p values from GTS gwas study
-
-[separate step](gnomad_filter_annotate_draw.ipynb): Drawing of 151 simulated gnomad controls and annotation of this dataset (and filtering for coverage).
-
-[step 6](step_6_nearest_genes_phenotypes_gnomad_merge_pca.ipynb): two tables: simulated controls from gnomad and samples were joined and annotated with phenotypes (only samples are annotated) and with nearest genes (20kb from transcript, all variants annotated)
 
 #### 2. SKAT test
 The output of step 6 was used to for a SKAT test and then a try to use the top genes to predict phenotypes on other samples. The analysis notebook is available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/large_vcf_analysis/data_from_prometheus/SKAT_heavy_vs_gnomad_test_on_families.html).
 
-#### 3. Addtional analyses (agreed upon on the meeting):
-* A table od variants based on MAF < 1% and a model of dominant heritability with incomplete penetrance applied to large (4 or more indivudals families) ([code available here](2020_03_family_table_export.ipynb))
-* SKAT analysis of all genes - with and without related individuals ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
 
+* SKAT analysis of all genes - with and without related individuals ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
 * classifier based on brain-enriched genes ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
 
 
@@ -81,7 +69,6 @@ The output of step 6 was used to for a SKAT test and then a try to use the top g
 
 
 
-
 ### PART 3: structural variants analysis
 vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster
 
@@ -89,21 +76,3 @@ vcf od merged structural variants was obtained from Intelliseq and transfered to
 
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## initial analysis of the first cohort - coding variants:
-
-Samples were analysed with hail (0.2.27 (small vcf) and 0.2.29 (large vcf) in jupyter notebooks.
-
-samples: 'S_7288' and 'S_7289' and also: 'S_7240' and 'S_7241' had their samples_id's swapped in relation with their barcodes. During the analysis this was corrected.
-
-### PART1: small vcf analysis:
-For initial analysis,an annotated file was obtained from ISeq. Variants were filtered and only variants in coding regions and with SnpEff (http://snpeff.sourceforge.net/SnpEff_manual.html#intro) putative impact ‘MODERATE’ or ‘HIGH’ were retained (approx 40 000 variants). Due to being large outliers in PCA analysis two samples: 'WGS_139', 'WGS_D6816' were excluded.
-
-Analysis was conducted in three parts:
-1. [Main analysis file](small_vcf_analysis.ipynb) that produced pandas dataframes
-2. [Notebook to export appropriate csv and excel files](csv-work.ipynb)
-3. [Variant overrepresentation vs gnomAD](variant_overrepresentation_small_vcf.ipynb). This analysis was not really polished and finished as I wanted to have proper gnomAD controls and conduct the overrepresentation per genes not per variants.
-
-## small vcf results:
-description of initial results is available [here](https://docs.google.com/document/d/1wTMr_adtZWmKsrAAQDkk6aXU-3-p6bbi84qVoKFFIro/edit?usp=sharing) and resulting tables are available [here](http://149.156.177.112/projects/imdik-zekanowski-gts/small_vcf_analysis/out_files/)
