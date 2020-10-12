@@ -29,7 +29,7 @@ All analyses were performed with Hail 0.2.30.
 
 [This script](jupyter-hail.slurm) was used to run jupyter notebooks with hail on prometheus.
 
-Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here](vcf_filter_anno.ipynb)
+Repeats were removed using UCSC available rmsk track, alleles were split using hail hl.split_multi_hts() function (star alleles removed) and PCA was conducted (one outlier detected - sample 464 and removed from the analysis, main PCs were families). Variants were annotated with coverage from gnomad v3 and filtered for coverage_over_1 > 0.9 (90% of samples with DP of at least 1) and with AF of non-finnish european population and other fields. Genes were also annotated with their respective HPO terms. [full code avaiable here](vcf-filter-anno.ipynb)
 
 ### 3. Family - based analysis:
 
