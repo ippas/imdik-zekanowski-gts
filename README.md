@@ -59,16 +59,6 @@ The output of step 6 was used to for a SKAT test and then a try to use the top g
 * classifier based on brain-enriched genes ([code available here](SKAT_all_genes_classifier_based_on_brain_enriched(1).ipynb))
 
 
-### data and hail enviornment set up
-
-1. Hail enviornment was created in a [docker container](Dockerfile)
-
-2. To start the container: `docker run -it --rm -p 8889:8889 -p 4040:4040 -v $PWD:/hail hail-jupyter`
-
-3. To connect from local:`ssh -N -f -L localhost:8889:localhost:8889 ifpan` then `localhost:8889` in browser
-
-
-
 ### PART 3: structural variants analysis
 vcf od merged structural variants was obtained from Intelliseq and transfered to plgrid prometheus cluster
 
