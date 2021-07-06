@@ -1,0 +1,14 @@
+,family,genes
+0,E,[]
+1,T,"['IMMP2L', 'WWC1']"
+2,Y,"['PDGFB', 'NEGR1', 'IMMP2L', 'CHADL', 'SCUBE1']"
+3,J,"['FN1', 'PCDH1', 'SOX5', 'CTNNA3', 'PKP4', 'NRXN1']"
+4,F,['PKP4']
+5,A,"['TPH2', 'KCNE2', 'CELSR3', 'NCAM2', 'NEGR1', 'FBN2', 'IMMP2L', 'SORCS3', 'HTR2A']"
+6,I,"['PDGFB', 'CNTNAP2', 'NRXN1']"
+7,B,"['SOX5', 'CTNNA3', 'SLC6A4', 'HTR2C', 'WWC1']"
+8,C,['FN1']
+9,W,[]
+10,R,"['OPCML', 'CTNNA3', 'NEGR1', 'LSAMP', 'CDH5', 'CD47', 'NRXN1', 'ROBO2', 'GRIK4', 'NTM', 'CADM2']"
+11,D,[]
+12,S,"['OPCML', 'SOX5', 'COL27A1', 'DCC', 'CTNNA3', 'NTM', 'HDAC9', 'PKP4', 'LSAMP', 'CD47', 'NRXN1', 'WWC1', 'CADM2']"
