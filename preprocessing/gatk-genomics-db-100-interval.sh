@@ -18,19 +18,20 @@ SIF_DIR=$PLG_GROUPS_SHARED/plggneuromol/singularity-images/
 
 cd $WD
 
-FILE_LIST_GTS=`ls $WD/imdik-zekanowski-gts/data/gvcf/*gz | xargs -i bash -c 'echo -V {}'`
-FILE_LIST_SPORTSMEN=`ls $WD/imdik-zekanowski-sportwgs/data/gvcf/*gz | xargs -i bash -c 'echo -V {}'`
+FILE_LIST_GTS=`ls ./imdik-zekanowski-gts/data/gvcf/*gz | xargs -i bash -c 'echo -V {} '`
+FILE_LIST_SPORTSMEN=`ls ./imdik-zekanowski-sportwgs/data/gvcf/*gz | xargs -i bash -c 'echo -V {} '`
 
 INDEX=1
-SELECTED_INTERVAL=`ls $WD/imdik-zekanowski-gts/data/external-data/intervals/ | head -$INDEX`
+SELECTED_INTERVAL=`ls ./imdik-zekanowski-gts/data/external-data/intervals/ | head -$INDEX`
 
 DIR_NAME=`echo $SELECTED_INTERVAL | tr "-" "\n" | head -1`
-mkdir $WD/imdik-zekanowski-gts/preprocessing/genomicsdb/$DIR_NAME
+# mkdir ./imdik-zekanowski-gts/preprocessing/genomicsdb/$DIR_NAME
 
 srun singularity exec --bind $WD,$SCRATCH $SIF_DIR/gatk-4.1.7.0-hg38_1.0.1.sif \
-	sh -c "gatk --java-options '-Xmx14g -Djava.io.tmpdir=$SCRATCH' GenomicsDBImport $FILE_LIST_GTS $FILE_LIST_SPORTSMEN \
-			 -L $SELECTED_INTERVAL \
-			 --genomicsdb-workspace-path $WD/genomics-db/$DIR_NAME \
+	sh -c "gatk --java-options "-Xmx14g -Xmx6g" GenomicsDBImport \
+			  \"$FILE_LIST_GTS\" \"$FILE_LIST_SPORTSMEN\" \
+			 -L ./imdik-zekanowski-gts/data/external-data/intervals/$SELECTED_INTERVAL \
+			 --genomicsdb-workspace-path=./imdik-zekanowski-gts/preprocessing/genomicsdb/$DIR_NAME \
 			 --tmp-dir=$SCRATCH \
 			 --batch-size 10 \
 			 --consolidate true"
