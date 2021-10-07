@@ -1,5 +1,9 @@
 # WGS analysis of GTS data:
 
+## *This data is split into two projects. The first project is called oligogenic-model and the second is called burden-and-family.* 
+
+#
+
 *note: In June 2020 35 new samples were obtained to be added to the analyses. We repeated genotyping (from gvcf stage) to incorporate them. Below is the full information for the whole analysis of all 186 samples*
 
 Data were copied to the Prometheus cluster (see the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with a batch script:
