@@ -1,2 +1,8 @@
 data/
 results/
+
+.ipynb_checkpoints/
+hail-*.log
+job-log-*.txt
+notebook.slurm
+job*
