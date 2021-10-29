@@ -4,13 +4,11 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH -A plgsportwgs
 #SBATCH -p plgrid
-#SBATCH -t 48:0:0
+#SBATCH -t 3-0:0:0
 #SBATCH --mem=14GB
-#SBATCH --output=%j.out
-#SBATCH --error=%j.err
-#SBATCH --array=1-945
-#SBATCH --output /net/archive/groups/plggneuromol/imdik-zekanowski-gts/preprocessing/job-log--%J.txt
-#SBATCH --error /net/archive/groups/plggneuromol/imdik-zekanowski-gts/preprocessing/job-error--%J.err
+#SBATCH --array=351-550%50
+#SBATCH --output /net/archive/groups/plggneuromol/imdik-zekanowski-gts/preprocessing/job-log--%A_%a.txt
+#SBATCH --error /net/archive/groups/plggneuromol/imdik-zekanowski-gts/preprocessing/job-error--%A_%a.err
 
 set -ex
 
