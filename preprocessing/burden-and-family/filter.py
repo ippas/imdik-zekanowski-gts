@@ -8,9 +8,7 @@ part = sys.argv[1]
 hl.init(tmp_dir='/net/scratch/people/plggosborcz', default_reference='GRCh38')
 
 rpmk = hl.read_table('/net/archive/groups/plggneuromol/imdik-zekanowski-gts/data/external-data/repeatmasker-extended-keyed.ht')
-cov = hl.read_table('/net/scratch/people/plggosborcz/temp-mts/gnomad-cov-keyed.ht')
-
-
+cov = hl.read_table('/net/archive/groups/plggneuromol/imdik-zekanowski-gts/data/external-data/gnomad/gnomad-cov-keyed.ht')
 
 hl.import_vcf('/net/archive/groups/plggneuromol/imdik-zekanowski-gts/data/joint-with-sportsmen/vcf-parts/'+str(part)+'-part.vcf.gz', 
 	reference_genome='GRCh38',
@@ -21,8 +19,6 @@ mt = hl.read_matrix_table('/net/scratch/people/plggosborcz/temp-mts/'+str(part)+
 mt = mt.filter_rows(hl.is_defined(rpmk[mt.locus]), keep = False)
 
 mt.checkpoint('/net/scratch/people/plggosborcz/temp-mts/'+str(part)+'-part-rpmk.mt')
-
-
 
 mt = mt.filter_rows(hl.is_defined(cov[mt.locus]), keep = True)
 
