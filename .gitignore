@@ -1,5 +1,6 @@
 data/
 results/
+raw/
 
 .ipynb_checkpoints/
 hail-*.log
