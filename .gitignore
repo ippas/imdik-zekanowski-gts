@@ -1,6 +1,7 @@
 data/
 results/
 raw/
+venv2/
 
 .ipynb_checkpoints/
 hail-*.log
