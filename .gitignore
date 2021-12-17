@@ -4,6 +4,8 @@ raw/
 venv2/
 
 .ipynb_checkpoints/
+*/.ipynb_checkpoints
+*/*/.ipynb_checkpoints
 hail-*.log
 job-log-*.txt
 notebook.slurm
