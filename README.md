@@ -35,11 +35,11 @@ Repeats were removed using UCSC available rmsk track, alleles were split using h
 
 For variant analysis, all variants were annotated with their CADD scores. GnomAD allele frequencies (non-finnish european) were used to simulate controls. The cohort and simulated controls were later joined into one matrix table.
 
-#### 4. SKAT test and oligogenic model
+### 4. SKAT test and oligogenic model
 
 Th prepared matrix-table was then analysed to create an oligogenic (5 genes) model of GTS.
 
 # Burden and family
 
-In this part all analyses were 
+In this part all analyses were conducted with Hail
 
