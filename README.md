@@ -80,16 +80,12 @@ option B: segregation schema that takes into account carriers without the diseas
 
 ### 5. Burden tests for unrelated individuals:
 
-goal: to find overrepresentation of damaging mutations in selected gene list
+goal: to find overrepresentation of damaging mutations in selected gene lists
 
-GTS - unrelated individuals with heavy tics (n = 37 - 2 samples excluded based on PCA, one sample - WGS_6827 excluded based on quality control)
+GTS - unrelated individuals with heavy tics (n = 37 - 2 samples excluded based on PCA, - 1 sample - excluded based on quality control)
+elite sportsmen controls (n = 100 - 2 samples excluded based on PCA) - main control
+external 1000genomes project controls (n = 98; selected to overlap with our samples on PCA)
 
-elite sportsmen controls (n = 100; 2 samples excluded based on PCA) - main control
-
-external 1kg controls (n = 98; selected to overlap with our samples on PCA)
-
-burden test procedure:
-
-burden score (CADD-weighted score) summed per each list and then groups are compared with t-tests. CADD is used as it incorporates predicted effect of damaging mutations, also those absent from gnomAD
+burden test procedure: burden score (CADD-weighted score) summed per each list and then groups are compared with t-tests.
 
 
