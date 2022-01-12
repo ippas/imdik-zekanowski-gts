@@ -3,7 +3,7 @@
 ## slurm configuration
 #SBATCH --partition plgrid-now
 #SBATCH -N 1
-#SBATCH --time 05:00:00
+#SBATCH --time 12:00:00
 #SBATCH --mem=40gb
 #SBATCH --ntasks-per-node=1
 #SBATCH -c 12
