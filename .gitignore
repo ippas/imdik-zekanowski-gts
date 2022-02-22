@@ -2,6 +2,7 @@ data/
 results/
 raw/
 venv2/
+.vscode/
 
 .ipynb_checkpoints/
 */.ipynb_checkpoints
