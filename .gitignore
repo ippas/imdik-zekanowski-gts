@@ -3,6 +3,8 @@ results/
 raw/
 venv2/
 .vscode/
+venv-hail-0.2.105/
+
 
 .ipynb_checkpoints/
 */.ipynb_checkpoints

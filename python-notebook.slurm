@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ## slurm configuration
-#SBATCH --partition plgrid-now
+#SBATCH --partition plgrid
 #SBATCH -N 1
-#SBATCH --time 05:00:00
-#SBATCH --mem=40gb
+#SBATCH --time 12:00:00
+#SBATCH --mem=20gb
 #SBATCH --ntasks-per-node=1
 #SBATCH -c 12
 #SBATCH --job-name jupyter-hail
@@ -29,7 +29,10 @@ echo -e "
     ------------------------------------------------------------------
     "
 
-module load plgrid/tools/java8
-source venv2/bin/activate
+module add java/11.0.2
+module load python/3.10.4-gcccore-11.3.0
 
-jupyter-notebook --no-browser --port=$ipnport --ip=$ipnip
+# source python virtual environment
+source venv-hail-0.2.105/bin/activate
+
+jupyter lab --no-browser --port=$ipnport --ip=$ipnip
