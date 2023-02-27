@@ -3,10 +3,10 @@
 ## slurm configuration
 #SBATCH --partition plgrid-now
 #SBATCH -N 1
-#SBATCH --time 03:00:00
-#SBATCH --mem=30gb
+#SBATCH --time 12:00:00
+#SBATCH --mem=70gb
 #SBATCH --ntasks-per-node=1
-#SBATCH -c 12
+#SBATCH -c 20
 #SBATCH --job-name jupyter-hail
 #SBATCH --output job-log--%J.txt
  

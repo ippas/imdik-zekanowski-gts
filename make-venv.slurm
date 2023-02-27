@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --partition plgrid
-#SBATCH --time 00:10:00
+#SBATCH --partition plgrid-now
+#SBATCH --time 02:00:00
 
 HAIL_VERSION=0.2.105
 
