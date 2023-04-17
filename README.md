@@ -4,26 +4,17 @@
 
 # Oligogenic model
 
-Data were copied to the Prometheus cluster (see the [documentation](https://kdm.cyfronet.pl/portal/Prometheus:Podstawy)) with a batch script:
-
-```
-#!/bin/bash
-## slurm configuration
-#SBATCH --partition plgrid
-#SBATCH -N 1
-#SBATCH -C localfs
-#SBATCH --ntasks-per-node=1
-#SBATCH --time 48:00:00
-#SBATCH --begin=now
-#SBATCH --job-name copy
-#SBATCH --output job-log--%J.txt
-
-wget --user=$USER --password=$PASSWORD -r -nH --cut-dirs=2 --no-parent --reject="index.html*" -c $URL
-```
+*archive code - these folders contain the first iteration of the paper results*
 
 ### 1. Joint genotyping
 
-Genomic vcf's were obtained from Intelliseq for all samples. Joint genotyping was performed with gatk 4.1.8.
+Genomic vcf's were obtained from Intelliseq for all samples. Joint genotyping was performed with Hail library - the GTS cohort was genotype jointly with the sporstmen cohort
+
+### 2. Additional controls
+
+We included 400 synthetic controls based on 1) nfe population from gnomAD and 2) based on a database of 1000 polish genomes
+
+-------------------------------
 
 ### 2. Filtering steps (filtering for coverage with gnomAD and filtering out low-complexity regions, split of multiallelic variants)
 
