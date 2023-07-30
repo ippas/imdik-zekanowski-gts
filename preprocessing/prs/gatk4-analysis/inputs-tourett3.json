@@ -1,0 +1,8 @@
+{
+    "gvcf_genotype_by_vcf_workflow.array_sample_info": ["460", "461", "462"],
+    "gvcf_genotype_by_vcf_workflow.gvcf_genotype_by_vcf.docker_image": "intelliseqngs/gatk-4.1.7.0-hg38:1.0.1",
+    "gvcf_genotype_by_vcf_workflow.gvcf_genotype_by_vcf.genotype_gvcfs_java_options": "-Xmx5g -Xms5g",
+    "gvcf_genotype_by_vcf_workflow.gvcf_genotype_by_vcf.interval_vcf_gz": "/net/pr2/projects/plgrid/plggneuromol/matzieb/projects/imdik-zekanowski-gts/data/prs/1kg-sportsmen-merged.vcf.gz",
+    "gvcf_genotype_by_vcf_workflow.gvcf_genotype_by_vcf.interval_vcf_gz_tbi": "/net/pr2/projects/plgrid/plggneuromol/matzieb/projects/imdik-zekanowski-gts/data/prs/1kg-sportsmen-merged.vcf.gz.tbi",
+    "gvcf_genotype_by_vcf_workflow.gvcf_genotype_by_vcf.merge_annotations": true
+}
