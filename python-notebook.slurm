@@ -34,6 +34,6 @@ module add java/11.0.2
 module load python/3.10.4-gcccore-11.3.0
 
 # source python virtual environment
-source venv-hail-0.2.105/bin/activate
+source venv-hail-0.2.113/bin/activate
 
 jupyter lab --no-browser --port=$ipnport --ip=$ipnip

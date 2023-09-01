@@ -4,7 +4,13 @@ raw/
 venv2/
 .vscode/
 venv-hail-0.2.105/
+venv-hail-0.2.113/
+*/iframe*
 
+*png
+*crc
+*csv
+*tsv
 
 .ipynb_checkpoints/
 */.ipynb_checkpoints
