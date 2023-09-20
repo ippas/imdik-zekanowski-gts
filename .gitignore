@@ -6,6 +6,7 @@ venv2/
 venv-hail-0.2.105/
 venv-hail-0.2.113/
 */iframe*
+preprocessing/oligogenic-model/__pycache__/
 
 *png
 *crc
